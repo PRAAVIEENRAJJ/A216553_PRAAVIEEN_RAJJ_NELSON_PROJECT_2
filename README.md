@@ -1,12 +1,15 @@
 Smart Budget SDG 1: No Poverty
 
-The Problem
+The Problem:
+
 Not having stable finances is a big reason why people in Malaysia struggle with poverty. While basic budgeting helps, low-income families and students face severe economic isolation because they are completely cut off from real-world financial literacy resources and changing market dynamics. Furthermore, critical community social safety nets—such as local welfare hubs, NGO food banks, and zakat distribution centers—are highly fragmented and rely entirely on unreliable word-of-mouth. Without a real-time, unified system to discover accessible aid and learn strategic budgeting to counter inflation, vulnerable groups are frequently left unprotected against unexpected financial crises, pushing them deeper below the poverty line.
 
-Our Solution
+Our Solution:
+
 Smart Budget is an upgraded mobile app, built using Jetpack Compose, that transforms from a basic expense tracker into a comprehensive, tech-driven social safety net to build community resilience. The app empowers users by introducing a decentralized mutual-aid portal alongside its core envelope tracking framework. By allowing users to discover and log real-time relief operations directly on a shared network, the app ensures that financial support structures are transparent and instantly accessible. It directly advances the UN's goal of ending poverty by bridging the information gap, keeping families securely connected to live resource maps and actionable economic insights when they need them most.
 
-What This Project Shows
+What This Project Shows:
+
 Advanced Navigation Flow: How to expand your app architecture to support an integrated 7-screen ecosystem cleanly using Navigation Compose.
 
 Local Caching & Persistence Architecture: How to implement a Room Database abstraction layer over SQLite so that all local budget targets survive application closures and remain 100% operational offline.
@@ -17,7 +20,8 @@ Hardware Sensor Integration: How to tap directly into the device's built-in GPS 
 
 Real-Time Cloud Synchronization Engines: How to connect a live Firebase Cloud Firestore pipeline using open snapshot listener datastreams to push crowdsourced data points instantly across user feeds.
 
-Key Features
+Key Features:
+
 Interactive Lock-and-Edit Sliders: Expandable dashboard cards featuring a secure pencil-and-checkmark icon toggle that locks down interactive sliders, updating balance calculation matrices reactively.
 
 Live Market Insights: A dedicated resource feed that connects to a remote REST web server to pull up-to-the-minute economic lessons and strategic financial tips to shield household spending power.
