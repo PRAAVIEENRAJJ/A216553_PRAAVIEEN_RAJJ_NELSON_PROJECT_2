@@ -1,4 +1,5 @@
 Smart Budget SDG 1: No Poverty
+
 The Problem
 Not having stable finances is a big reason why people in Malaysia struggle with poverty. While basic budgeting helps, low-income families and students face severe economic isolation because they are completely cut off from real-world financial literacy resources and changing market dynamics. Furthermore, critical community social safety nets—such as local welfare hubs, NGO food banks, and zakat distribution centers—are highly fragmented and rely entirely on unreliable word-of-mouth. Without a real-time, unified system to discover accessible aid and learn strategic budgeting to counter inflation, vulnerable groups are frequently left unprotected against unexpected financial crises, pushing them deeper below the poverty line.
 
