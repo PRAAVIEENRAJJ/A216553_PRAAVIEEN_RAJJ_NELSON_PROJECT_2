@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Envelope::class], version = 1, exportSchema = false)
+@Database(entities = [Envelope::class, FavoriteFoodBank::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun envelopeDao(): EnvelopeDao
+    abstract fun foodBankDao(): FavoriteFoodBankDao
 
     companion object {
         @Volatile
@@ -19,7 +20,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "smart_budget_db"
-                ).build()
+                )
+                .fallbackToDestructiveMigration() // Simple for development
+                .build()
                 INSTANCE = instance
                 instance
             }

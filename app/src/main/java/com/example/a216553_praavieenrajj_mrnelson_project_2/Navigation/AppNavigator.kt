@@ -7,23 +7,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.a216553_praavieenrajj_mrnelson_project_2.Screens.AddEnvelopeScreen
-import com.example.a216553_praavieenrajj_mrnelson_project_2.Screens.HomeScreen
-import com.example.a216553_praavieenrajj_mrnelson_project_2.Screens.LoginScreen
-import com.example.a216553_praavieenrajj_mrnelson_project_2.Screens.ProfileScreen
-import com.example.a216553_praavieenrajj_mrnelson_project_2.Screens.RegisterScreen
-import com.example.a216553_praavieenrajj_mrnelson_project_2.Screens.CommunityHubScreen
-import com.example.a216553_praavieenrajj_mrnelson_project_2.Screens.InsightsScreen
+import com.example.a216553_praavieenrajj_mrnelson_project_2.Screens.*
 import com.example.a216553_praavieenrajj_mrnelson_project_2.ViewModel.UserViewModel
 
 enum class Screen {
-    LOGIN,
-    REGISTER,
-    HOME,
-    PROFILE,
-    ADD_ENVELOPE,
-    COMMUNITY_HUB,
-    INSIGHTS
+    LOGIN, REGISTER, HOME, PROFILE, ADD_ENVELOPE, COMMUNITY_HUB, INSIGHTS
 }
 
 @Composable
@@ -34,9 +22,7 @@ fun AppNavigator(userViewModel: UserViewModel = viewModel()) {
         composable(Screen.LOGIN.name) {
             LoginScreen(
                 userViewModel = userViewModel,
-                onLoginSuccess = {
-                    navController.navigate(Screen.HOME.name)
-                },
+                onLoginSuccess = { navController.navigate(Screen.HOME.name) },
                 onGoToRegister = { navController.navigate(Screen.REGISTER.name) }
             )
         }
@@ -44,9 +30,7 @@ fun AppNavigator(userViewModel: UserViewModel = viewModel()) {
         composable(Screen.REGISTER.name) {
             RegisterScreen(
                 userViewModel = userViewModel,
-                onRegisterSuccess = {
-                    navController.navigate(Screen.HOME.name)
-                },
+                onRegisterSuccess = { navController.navigate(Screen.HOME.name) },
                 onGoToLogin = { navController.popBackStack() }
             )
         }
@@ -57,10 +41,13 @@ fun AppNavigator(userViewModel: UserViewModel = viewModel()) {
             HomeScreen(
                 profile = profile,
                 envelopeList = envelopes,
+                userViewModel = userViewModel, // INTEGRATION: Shared data access
                 onNavigateToAdd = { navController.navigate(Screen.ADD_ENVELOPE.name) },
                 onViewProfile = { navController.navigate(Screen.PROFILE.name) },
                 onNavigateToCommunity = { navController.navigate(Screen.COMMUNITY_HUB.name) },
                 onNavigateToInsights = { navController.navigate(Screen.INSIGHTS.name) },
+                onDeleteEnvelope = { userViewModel.deleteEnvelope(it) },
+                onSaveSavings = { env, amt -> userViewModel.updateEnvelopeSavings(env, amt) },
                 onLogout = {
                     userViewModel.clear()
                     navController.navigate(Screen.LOGIN.name) { popUpTo(0) }
@@ -91,9 +78,7 @@ fun AppNavigator(userViewModel: UserViewModel = viewModel()) {
         }
 
         composable(Screen.INSIGHTS.name) {
-            InsightsScreen(
-                onBack = { navController.popBackStack() }
-            )
+            InsightsScreen(onBack = { navController.popBackStack() })
         }
     }
 }
